@@ -15,7 +15,8 @@ return new class extends Migration {
 
             $table->string('name');
             $table->string('primary_muscle_group', 50);
-            $table->string('secondary_muscle_group', 50);
+            $table->string('secondary_muscle_group', 50)->nullable();
+            $table->string('tertiary_muscle_group', 50)->nullable();
 
             $table->timestamps();
         });

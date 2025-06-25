@@ -6,6 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Athlete extends Model
 {
+    protected $fillable = [
+        'name',
+        'surname',
+        'email',
+        'telephone',
+        'notes',
+        'height_cm',
+        'initial_weight'
+    ];
     public function workouts()
     {
         return $this->hasMany(Workout::class);

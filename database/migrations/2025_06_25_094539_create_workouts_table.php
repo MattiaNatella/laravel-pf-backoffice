@@ -16,7 +16,8 @@ return new class extends Migration {
 
             $table->string('name')->nullable();
             $table->string('goal', 50);
-            $table->string('notes');
+            $table->text('notes')->nullable();
+            $table->tinyInteger('workouts_per_weeks');
 
             $table->timestamps();
         });
@@ -27,6 +28,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('workout_plans');
+        Schema::dropIfExists('workouts');
     }
 };
