@@ -24,7 +24,7 @@ class AthleteTableSeeder extends Seeder
             $newAthlete->email = $faker->email();
             $newAthlete->telephone = $faker->phoneNumber();
             $newAthlete->height_cm = $faker->numberBetween(150, 210);
-            $newAthlete->initial_weight = $faker->numberBetween(45, 200);
+            $newAthlete->initial_weight = $faker->biasedNumberBetween(45, 200, 'sqrt');
 
             $newAthlete->save();
         }
