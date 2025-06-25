@@ -12,10 +12,11 @@ return new class extends Migration {
     {
         Schema::create('workouts', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('athlete_id')->constrained()->onDelete('cascade');
 
-            $table->foreignId('athlete_id')->constrained();
-
-
+            $table->string('name')->nullable();
+            $table->string('goal', 50);
+            $table->string('notes');
 
             $table->timestamps();
         });
