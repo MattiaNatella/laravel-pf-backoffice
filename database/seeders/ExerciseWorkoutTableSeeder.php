@@ -34,12 +34,12 @@ class ExerciseWorkoutTableSeeder extends Seeder
 
                 // Creo una nuova istanza
                 $newExerciseWorkout = new ExerciseWorkout([
-                    'workout_id' => $workout->id,
+                    'workout_id' => $workout,
                     //prendo un valore random
                     'exercise_id' => $exercises->random(),
                     'sets' => $faker->numberBetween(3, 5),
                     'reps' => $faker->numberBetween(8, 15),
-                    'note' => $faker->sentence(),
+                    'notes' => $faker->sentence(),
                 ]);
 
                 $newExerciseWorkout->save();
