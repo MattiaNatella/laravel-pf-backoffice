@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Athlete;
 use Illuminate\Http\Request;
 
 class AthleteController extends Controller
@@ -12,7 +13,11 @@ class AthleteController extends Controller
      */
     public function index()
     {
-        //
+        //mostra tutti gli atleti
+
+        $athletes = Athlete::all()->toArray();
+
+        return view('athletes.index', compact('athletes'));
     }
 
     /**
