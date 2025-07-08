@@ -17,6 +17,7 @@ return new class extends Migration {
 
             $table->smallInteger('sets')->default(3);
             $table->smallInteger('reps')->default(12);
+            $table->tinyText('notes')->nullable();
 
             $table->timestamps();
         });
