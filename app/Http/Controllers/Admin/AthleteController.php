@@ -15,7 +15,9 @@ class AthleteController extends Controller
     {
         //mostra tutti gli atleti
 
-        $athletes = Athlete::all()->toArray();
+        $athletes = Athlete::all();
+
+        // DA FARE: CREARE IL DEFAULT LAYOUT, POI LE CRUD E LE VIEW PER OGNI ENTITA' PER ATLETI, WORKOUTS,EXERCISE, EXERCISE_WORKOUTS
 
         return view('athletes.index', compact('athletes'));
     }
