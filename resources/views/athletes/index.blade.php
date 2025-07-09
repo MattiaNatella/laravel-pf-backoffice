@@ -2,14 +2,19 @@
 
 @section('content')
 
-    <span>Ciao Sono la INDEX DEGLI ATLETI</span>
+
+    <div class="container">
+        <a class="btn btn-info my-2" href="{{ route('admin.athletes.create') }}">Aggiungi un nuovo Atleta</a>
+    </div>
 
     <div class="container d-flex flex-wrap gap-1">
+
+
         @foreach ($athletes as $athlete)
             <div class="card text-danger" style="width: 18rem;">
                 <div class="card-header d-flex justify-content-between">
                     <span class="align-self-center">{{$athlete->name}} {{ $athlete->surname }}</span>
-                    <button class="btn btn-info">Dettagli</button>
+                    <a class="btn btn-info" href="{{ route('admin.athletes.show', $athlete) }}">Dettagli</a>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Email: {{ $athlete->email }}</li>

@@ -27,7 +27,7 @@ class AthleteController extends Controller
      */
     public function create()
     {
-        //
+        return view('athletes.create');
     }
 
     /**
@@ -35,15 +35,18 @@ class AthleteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $requestArray = $request->toArray();
+        $newAthlete = Athlete::create($requestArray);
+
+        return redirect()->route('admin.athletes.show', $newAthlete);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Athlete $athlete)
     {
-        //
+        return view('athletes.show', compact('athlete'));
     }
 
     /**
