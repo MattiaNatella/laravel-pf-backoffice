@@ -13,11 +13,8 @@ class AthleteController extends Controller
      */
     public function index()
     {
-        //mostra tutti gli atleti
-
+        //raccoglie tutti gli atleti
         $athletes = Athlete::all();
-
-        // DA FARE: CREARE IL DEFAULT LAYOUT, POI LE CRUD E LE VIEW PER OGNI ENTITA' PER ATLETI, WORKOUTS,EXERCISE, EXERCISE_WORKOUTS
 
         return view('athletes.index', compact('athletes'));
     }
@@ -35,8 +32,8 @@ class AthleteController extends Controller
      */
     public function store(Request $request)
     {
-        $requestArray = $request->toArray();
-        $newAthlete = Athlete::create($requestArray);
+
+        $newAthlete = Athlete::create($request->all());
 
         return redirect()->route('admin.athletes.show', $newAthlete);
     }
@@ -52,17 +49,19 @@ class AthleteController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Athlete $athlete)
     {
-        //
+        return view('athletes.edit', compact('athlete'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Athlete $athlete)
     {
-        //
+        $athlete->update($request->all());
+
+        return redirect()->route('admin.athletes.show', $athlete);
     }
 
     /**
