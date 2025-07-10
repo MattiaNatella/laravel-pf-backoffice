@@ -29,7 +29,7 @@
         </ul>
 
 
-        -- inserire card --
+        -- inserire card + INSERIRE TASTO PER OGNI WORKOUT CHE VA NEL DETTAGLIO FACENDO VEDERE ESERCIZI SETS REPS E NOTES --
 
     </div>
 
