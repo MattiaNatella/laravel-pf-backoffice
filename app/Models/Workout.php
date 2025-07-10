@@ -20,6 +20,7 @@ class Workout extends Model
     public function exercises()
     {
         return $this->belongsToMany(Exercise::class)
-            ->withPivot('sets', 'reps');
+            //qui sto dicendo di caricare anche i dati della tabella pivot
+            ->withPivot(['sets', 'reps', 'notes']);
     }
 }

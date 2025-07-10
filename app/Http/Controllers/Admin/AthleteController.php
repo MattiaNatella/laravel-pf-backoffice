@@ -45,6 +45,11 @@ class AthleteController extends Controller
      */
     public function show(Athlete $athlete)
     {
+
+        //inserendo un arra
+        //carica i workout solo quando serve, visto che nella index non sono richiesti, li carica solo nel momento in cui vado nella show del singolo atleta risparmiando risorse
+
+        $athlete->load(['workouts.exercises']);
         return view('athletes.show', compact('athlete'));
     }
 
