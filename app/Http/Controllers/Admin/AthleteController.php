@@ -16,6 +16,8 @@ class AthleteController extends Controller
         //raccoglie tutti gli atleti
         $athletes = Athlete::all();
 
+        $athletes = $athletes->sortBy('name');
+
         return view('athletes.index', compact('athletes'));
     }
 
@@ -67,8 +69,9 @@ class AthleteController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Athlete $athlete)
     {
-        //
+        $athlete->delete();
+        return redirect()->route('admin.athletes.index');
     }
 }
