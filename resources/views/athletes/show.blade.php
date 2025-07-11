@@ -11,7 +11,10 @@
         <h1 class=" border-primary rounded">Dettaglio atleta <span
                 class="text-info text-decoration-underline">{{$athlete->name }}
                 {{ $athlete->surname }}</span> </h1>
-        <h2>Schede di allenamento:</h2>
+        @if ($workout != 0)
+            <h2>Schede di allenamento:</h2>
+        @endif
+
         <ol class="p-0">
             <!-- Itero tutti i workout dell'atleta -->
             @forelse ($athlete->workouts as $workout)
@@ -29,11 +32,10 @@
                     </div>
                 </div>
             @empty
-                <h2>nessuna scheda di allenamento</h2>
+                <h2>Non è stato ancora assegnato un workout!</h2>
 
             @endforelse
         </ol>
-        -- inserire card + INSERIRE TASTO PER OGNI WORKOUT CHE VA NEL DETTAGLIO FACENDO VEDERE ESERCIZI SETS REPS E NOTES --
     </div>
 @endsection
 
