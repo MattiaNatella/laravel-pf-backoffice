@@ -17,7 +17,6 @@ Route::get('/dashboard', function () {
 
 
 // ROTTE ADMIN
-
 Route::middleware(['auth'])
     ->name('admin.')
     ->prefix('/admin')

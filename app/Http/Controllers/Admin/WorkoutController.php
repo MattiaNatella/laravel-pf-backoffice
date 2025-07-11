@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Athlete;
+use App\Models\Workout;
 use Illuminate\Http\Request;
 
 class WorkoutController extends Controller
@@ -34,17 +36,20 @@ class WorkoutController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Workout $workout)
     {
-        //
+        $athlete = $workout->athlete;
+
+        $workout->load('exercises');
+        return view('workouts.show', compact('workout', 'athlete'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Workout $workout)
     {
-        //
+
     }
 
     /**
@@ -58,8 +63,11 @@ class WorkoutController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Workout $workout)
     {
-        //
+        $workout->delete();
+        $athlete = $workout->athlete;
+
+        return redirect()->route('admin.athletes.show', $athlete);
     }
 }
