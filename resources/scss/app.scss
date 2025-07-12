@@ -13,6 +13,38 @@
 // Assicura che il contenuto delle card non esca dai bordi
 .card {
     overflow: hidden;
-    max-width: 540px;
+    width: 300px !important;
+    min-width: 300px !important;
+    max-width: 300px !important;
     word-break: break-word;
+    margin: 0.5rem;
+}
+
+.card-body {
+    padding: 0.5rem !important;
+}
+
+.card .btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+}
+
+.card-text {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.card .row {
+    margin: 0;
+    width: 100%;
+}
+
+.card .col-md-4,
+.card .col-md-8 {
+    padding: 0;
 }
