@@ -42,11 +42,20 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('admin.athletes.index') }}">{{ __('Atleti') }}</a>
-                        </li>
-                    </ul>
+                    @guest
+                        <ul class="navbar-nav me-auto d-none">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('admin.athletes.index') }}">{{ __('Atleti') }}</a>
+                            </li>
+                        </ul>
+
+                    @else
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('admin.athletes.index') }}">{{ __('Atleti') }}</a>
+                            </li>
+                        </ul>
+                    @endguest
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -72,7 +81,7 @@
                                     <a class="dropdown-item" href="{{ url('dashboard') }}">{{__('Dashboard')}}</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                                                         document.getElementById('logout-form').submit();">
+                                                                                                                                             document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
