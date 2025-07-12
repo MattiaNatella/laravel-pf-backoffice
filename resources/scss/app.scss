@@ -1,5 +1,9 @@
 @import '~bootstrap/scss/bootstrap';
 
+
+
+
+
 // Limita la dimensione delle immagini delle card atleta
 .copertina-atleta {
     object-fit: cover;
@@ -47,4 +51,11 @@
 .card .col-md-4,
 .card .col-md-8 {
     padding: 0;
+}
+
+main {
+    background-image: url('storage/athletes/home-card-sfondo.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    height: calc(100vh - 55px);
 }
