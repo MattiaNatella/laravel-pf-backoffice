@@ -19,14 +19,15 @@
             <div class="col-md-10">
                 <div class="card-body">
                     <h1 class="card-title">{{$athlete->name}} {{ $athlete->surname }}</h1>
-                    <p class="card-text container">
-                    <ul class="fs-3">
-                        <li><strong>Email:</strong> {{ $athlete->email }}</li>
-                        <li><strong>Telefono:</strong> {{ $athlete->telephone }}</li>
-                        <li><strong>Altezza:</strong> {{ $athlete->height_cm }}cm</li>
-                        <li><strong>Peso di partenza:</strong> {{ $athlete->initial_weight}}kg</li>
-                    </ul>
-                    </p>
+                    <div class="card-text container">
+                        <ul class="fs-3">
+                            <li><strong>Email:</strong> {{ $athlete->email }}</li>
+                            <li><strong>Telefono:</strong> {{ $athlete->telephone }}</li>
+                            <li><strong>Altezza:</strong> {{ $athlete->height_cm }}cm</li>
+                            <li><strong>Peso di partenza:</strong> {{ $athlete->initial_weight}}kg</li>
+                        </ul>
+                        <p>{{ $athlete->notes }}</p>
+                    </div>
 
                 </div>
             </div>

@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="container">
-        <h1>Inserisci gli esercizi per il workout {{ $workout->name }} di {{ $athlete->name }} {{ $athlete->surname }} </h1>
+        <h1>Assegna gli esercizi per il workout {{ $workout->name }} di {{ $athlete->name }} {{ $athlete->surname }} </h1>
 
         <div class="container">
             <ol>
@@ -43,10 +43,10 @@
             <label for="notes" class="form-label">Note</label>
             <input type="text" name="notes" id="notes" class="form-control">
 
-            <div class="container d-flex">
+            <div class="container gap-2 d-flex p-0">
 
-                <input type="submit" value="Invia" class="my-2 btn btn-warning">
-                <a class="btn btn-success" href="{{ route('admin.workouts.show', $workout) }}">Fine</a>
+                <input type="submit" value="Inserisci e scegli il prossimo" class="my-2 btn btn-warning">
+                <a class="btn btn-success align-self-center" href="{{ route('admin.workouts.show', $workout) }}">Fine</a>
             </div>
 
 

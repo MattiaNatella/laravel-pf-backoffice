@@ -5,7 +5,7 @@
             <h1><strong>Benvenuto nel Back Office della tua web-app da Personal Trainer! </strong></h1>
             <p class="fs-2">Qui potrai gestire tutte le informazioni riguardanti i tuoi atleti, consultare le loro schede di
                 allenamento
-                ed assegnarne di nuove!</p>
+                ed assegnarne di nuove</p>
             @guest
                 <p class="fs-3">Per cominciare, effettua il login</p>
             @else
