@@ -43,7 +43,12 @@
             <label for="notes" class="form-label">Note</label>
             <input type="text" name="notes" id="notes" class="form-control">
 
-            <input type="submit" value="Invia" class="my-2 btn btn-warning">
+            <div class="container d-flex">
+
+                <input type="submit" value="Invia" class="my-2 btn btn-warning">
+                <a class="btn btn-success" href="{{ route('admin.workouts.show', $workout) }}">Fine</a>
+            </div>
+
 
         </form>
 
