@@ -53,8 +53,9 @@ class WorkoutController extends Controller
 
         $newWorkout = Workout::create($data);
 
-
-        return redirect()->route('admin..show', $data['athlete_id']);
+        return redirect()->route('admin.exercise_workouts.create')
+            ->with('workout_id', $newWorkout->id)
+            ->with('athlete_id', $data['athlete_id']);
     }
 
     /**

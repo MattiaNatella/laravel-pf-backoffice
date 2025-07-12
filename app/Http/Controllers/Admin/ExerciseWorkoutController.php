@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Athlete;
+use App\Models\Exercise;
+use App\Models\ExerciseWorkout;
+use App\Models\Workout;
 use Illuminate\Http\Request;
 
 class ExerciseWorkoutController extends Controller
@@ -20,7 +24,13 @@ class ExerciseWorkoutController extends Controller
      */
     public function create()
     {
-        //
+        $athlete = Athlete::find(session('athlete_id'));
+        $workout = Workout::find(session('workout_id'));
+        $exercises = Exercise::all();
+
+        //dd($athlete, $workout, $exercises);
+
+        return view('exerciseworkout.create', compact('athlete', 'workout', 'exercises'));
     }
 
     /**
@@ -28,7 +38,20 @@ class ExerciseWorkoutController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $workout = Workout::find($request->workout_id);
+        // dd($request);
+        $data = $request->all();
+
+        $data['workout_id'] = $request->workout_id;
+        $athlete = $workout->athlete;
+        // dd($data);
+
+        $newExercise = ExerciseWorkout::create($data);
+
+        return redirect()->route('admin.exercise_workouts.create')
+            ->with('workout_id', $data['workout_id'])
+            ->with('athlete_id', $athlete->id);
+
     }
 
     /**
