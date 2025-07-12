@@ -10,7 +10,8 @@
     <div class="container my-2 border-black rounded py-3">
         <h1 class=" border-primary rounded">Dettaglio atleta <span
                 class="text-info text-decoration-underline">{{$athlete->name }}
-                {{ $athlete->surname }}</span> </h1>
+                {{ $athlete->surname }}</span> <a class="btn btn-info text-white"
+                href="{{ route('admin.workouts.create', ['athlete_id' => $athlete->id]) }}">Crea un nuovo Workout</a> </h1>
         @if ($workout != 0)
             <h2>Schede di allenamento:</h2>
         @endif
@@ -24,11 +25,11 @@
                         {{ $workout->created_at }}
                     </li>
                     <div class="crud d-flex gap-2">
-                        <a class="btn btn-info text-white"
-                            href="{{ route('admin.workouts.show', $workout) }}">VisualizzaScheda</a>
+                        <a class="btn btn-info text-white" href="{{ route('admin.workouts.show', $workout) }}">Visualizza
+                            Scheda</a>
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             Elimina Scheda
-                        </button> -->
+                        </button>
                     </div>
                 </div>
             @empty

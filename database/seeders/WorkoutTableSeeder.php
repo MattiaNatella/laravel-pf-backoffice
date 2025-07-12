@@ -19,14 +19,19 @@ class WorkoutTableSeeder extends Seeder
         $goals = ['massa', 'forza', 'dimagrimento'];
 
 
+        //per ogni atleta assegno un numero random da 1 a 5 di schede di allenamento
         foreach ($athletes as $athlete) {
-            Workout::create([
-                'athlete_id' => $athlete,
-                'name' => $faker->words(3, true),
-                'goal' => $faker->randomElement($goals),
-                'notes' => $faker->sentence(),
-                'workouts_per_weeks' => $faker->numberBetween(2, 7)
-            ]);
+            $numberOfWorkouts = rand(1, 5);
+            for ($i = 0; $i < $numberOfWorkouts; $i++) {
+                Workout::create([
+                    'athlete_id' => $athlete,
+                    'name' => $faker->words(3, true),
+                    'goal' => $faker->randomElement($goals),
+                    'notes' => $faker->sentence(),
+                    'workouts_per_weeks' => $faker->numberBetween(2, 7)
+                ]);
+            }
+
         }
 
     }

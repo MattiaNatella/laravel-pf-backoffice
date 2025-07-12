@@ -20,9 +20,20 @@ class WorkoutController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+
+        //recupero l'id dell'atleta dalla query string inserita come parametro dell'URL
+        $athleteId = $request->query('athlete_id');
+        // dd($athleteId);
+
+        //recupero i dati dell'atleta tramite id
+        $athlete = Athlete::find($athleteId);
+        // dd($athlete);
+
+
+
+        return view('workouts.create', compact('athlete'));
     }
 
     /**
@@ -30,7 +41,20 @@ class WorkoutController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        //prendo tutti i campi dal form
+        $data = $request->all();
+
+        //aggiungo manualmente l'ID dell'atleta passato tramite query string
+
+        $data['athlete_id'] = $request->athlete_id;
+
+        //creo e salvo nuova istanza con il metodo create
+
+        $newWorkout = Workout::create($data);
+
+
+        return redirect()->route('admin..show', $data['athlete_id']);
     }
 
     /**
