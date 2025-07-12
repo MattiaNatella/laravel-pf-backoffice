@@ -7,6 +7,8 @@
 @endphp
 
 @section('content')
+
+    <div class="container text-center"><img src="{{ asset('storage/' . $athlete->image) }}" alt=""></div>
     <div class="container my-2 border-black rounded py-3">
         <h1 class=" border-primary rounded">Dettaglio atleta <span
                 class="text-info text-decoration-underline">{{$athlete->name }}

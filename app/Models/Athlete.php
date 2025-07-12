@@ -13,7 +13,8 @@ class Athlete extends Model
         'telephone',
         'notes',
         'height_cm',
-        'initial_weight'
+        'initial_weight',
+        'image'
     ];
     public function workouts()
     {

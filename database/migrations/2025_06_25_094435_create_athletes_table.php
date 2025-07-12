@@ -17,6 +17,7 @@ return new class extends Migration {
             $table->string('surname', 100);
             $table->string('email')->unique();
             $table->string('telephone', 20)->nullable();
+            $table->text('image')->nullable();
             $table->text('notes')->nullable();
             $table->integer('height_cm')->nullable();
             $table->decimal('initial_weight', 5, 2)->nullable();

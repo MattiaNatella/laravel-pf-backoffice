@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Athlete;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AthleteController extends Controller
 {
@@ -35,7 +36,14 @@ class AthleteController extends Controller
     public function store(Request $request)
     {
 
-        $newAthlete = Athlete::create($request->all());
+        $data = $request->all();
+        if (array_key_exists('image', $data)) {
+            $img_url = Storage::putFile('athletes', $data['image']);
+            $data['image'] = $img_url;
+        }
+
+        $newAthlete = Athlete::create($data);
+
 
         return redirect()->route('admin.athletes.show', $newAthlete);
     }
@@ -66,7 +74,9 @@ class AthleteController extends Controller
      */
     public function update(Request $request, Athlete $athlete)
     {
-        $athlete->update($request->all());
+
+        $data = $request->all();
+        $athlete->update($data);
 
         return redirect()->route('admin.athletes.show', $athlete);
     }

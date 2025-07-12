@@ -5,7 +5,8 @@
     <div class="container">
         <h1>Aggiungi un nuovo Atleta</h1>
 
-        <form action="{{ route('admin.athletes.store') }}" method="POST" class="form-control border border-2">
+        <form action="{{ route('admin.athletes.store') }}" method="POST" class="form-control border border-2"
+            enctype="multipart/form-data">
             @csrf
 
             <label for="name" class="form-label">Nome</label>
@@ -28,6 +29,9 @@
 
             <label for="initial_weight" class="form-label">Peso in KG</label>
             <input type="number" name="initial_weight" id="initial_weight" class="form-control">
+
+            <label for="image" class="form-label">Foto Atleta</label>
+            <input type="file" name="image" id="image" class="form-control">
 
             <input type="submit" value="Invia" class="my-2 btn btn-warning">
 
