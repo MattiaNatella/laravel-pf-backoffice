@@ -1,1 +1,18 @@
-@import '~bootstrap/scss/bootstrap'
+@import '~bootstrap/scss/bootstrap';
+
+// Limita la dimensione delle immagini delle card atleta
+.copertina-atleta {
+    object-fit: cover;
+    width: 100%;
+    max-height: 305px;
+    border-top-left-radius: 0.375rem;
+    border-bottom-left-radius: 0.375rem;
+    display: block;
+}
+
+// Assicura che il contenuto delle card non esca dai bordi
+.card {
+    overflow: hidden;
+    max-width: 540px;
+    word-break: break-word;
+}

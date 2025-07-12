@@ -10,24 +10,30 @@
 
         @foreach ($athletes as $athlete)
 
-            <div class="card text-danger" style="width: 28rem;">
-                <div class="card-header d-flex justify-content-between">
-                    <span class="align-self-center">{{$athlete->name}} {{ $athlete->surname }}</span>
-                    <div class="crud d-flex gap-2">
-                        <a class="btn btn-info" href="{{ route('admin.athletes.show', $athlete) }}">Dettagli</a>
-                        <a class="btn btn-warning" href="{{ route('admin.athletes.edit', $athlete) }}">Modifica</a>
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            Elimina
-                        </button>
+            <div class="card mb-3" style="max-width: 540px; overflow: hidden;">
+                <div class="row g-0">
+                    <div class="col-md-4 p-0">
+                        <img src=" {{ ($athlete->image) ? asset('storage/' . $athlete->image) : "https://placehold.co/256x305/png" }}"
+                            class="rounded-start w-100 copertina-atleta" alt="copertina-atleta">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body px-1">
+                            <h5 class="card-title">{{$athlete->name}} {{ $athlete->surname }}</h5>
+                            <p class="card-text"><strong>Altezza:</strong> {{ $athlete->height_cm }}cm - <strong>Peso
+                                    iniziale:</strong> {{ $athlete->initial_weight }}kg</p>
+                            <a class="btn btn-info text-white" href="{{ route('admin.athletes.show', $athlete) }}">Dettagli</a>
+                            <a class="btn btn-warning text-white"
+                                href="{{ route('admin.athletes.edit', $athlete) }}">Modifica</a>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Elimina
+                            </button>
+                        </div>
                     </div>
                 </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><strong>Email:</strong> {{ $athlete->email }}</li>
-                    <li class="list-group-item"><strong>Telefono:</strong> {{ $athlete->telephone }}</li>
-                    <li class="list-group-item"><strong>Note:</strong> {{ $athlete->notes }}</li>
-                </ul>
             </div>
+
+
         @endforeach
     </div>
 @endsection

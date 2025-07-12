@@ -76,6 +76,19 @@ class AthleteController extends Controller
     {
 
         $data = $request->all();
+
+        if (array_key_exists('image', $data)) {
+
+            //elimino immagine precedente
+            Storage::delete($athlete->image);
+
+            //carico la nuova immagine
+            $img_url = Storage::putFile('athletes', $data['image']);
+
+            //aggiorno data
+            $data['image'] = $img_url;
+        }
+
         $athlete->update($data);
 
         return redirect()->route('admin.athletes.show', $athlete);
