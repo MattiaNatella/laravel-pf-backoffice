@@ -8,14 +8,33 @@
 
 @section('content')
 
-    @if ($athlete->image)
-        <div class="container"><img src="{{ asset('storage/' . $athlete->image) }}" alt=""></div>
-    @endif
+
+
+    <div class="container card mb-3 p-0 my-5" style="max-width: 1500px;">
+        <div class="row g-0">
+            <div class="col-md-2">
+                <img src="{{ ($athlete->image) ? asset('storage/' . $athlete->image) : "https://placehold.co/256x305/png" }}"" class="
+                    img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-10">
+                <div class="card-body">
+                    <h1 class="card-title">{{$athlete->name}} {{ $athlete->surname }}</h1>
+                    <p class="card-text container">
+                    <ul class="fs-3">
+                        <li><strong>Email:</strong> {{ $athlete->email }}</li>
+                        <li><strong>Telefono:</strong> {{ $athlete->telephone }}</li>
+                        <li><strong>Altezza:</strong> {{ $athlete->height_cm }}cm</li>
+                        <li><strong>Peso di partenza:</strong> {{ $athlete->initial_weight}}kg</li>
+                    </ul>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="container my-2 border-black rounded py-3">
-        <h1 class=" border-primary rounded">Dettaglio atleta <span
-                class="text-info text-decoration-underline">{{$athlete->name }}
-                {{ $athlete->surname }}</span> <a class="btn btn-info text-white"
+        <h1 class=" border-primary rounded">Protocolli assegnati: <a class="btn btn-info text-white"
                 href="{{ route('admin.workouts.create', ['athlete_id' => $athlete->id]) }}">Crea un nuovo Workout</a> </h1>
         @if ($workout != 0)
             <h2>Schede di allenamento:</h2>
