@@ -8,6 +8,12 @@
 @import 'bootstrap/scss/bootstrap';
 
 
+.cs-container {
+    padding: 5px;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
 main {
     background-image: url('storage/athletes/home-card-sfondo.jpg');
     background-repeat: no-repeat;

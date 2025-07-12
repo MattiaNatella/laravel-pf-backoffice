@@ -2,16 +2,19 @@
 
 @section('content')
     {{-- @dd($workout->exercise) --}}
-    <div class="container my-3 border border-2 rounded">Scheda allenamento <strong>{{ $workout->name }}</strong> di
-        <strong>{{ $athlete->name }}
-            {{ $athlete->surname }}</strong>
+    <div class="cs-container my-3 border border-2 rounded">
+        <h2>Scheda allenamento <strong>{{ $workout->name }}</strong> di
+            <strong>{{ $athlete->name }}
+                {{ $athlete->surname }}</strong>
+        </h2>
 
-        <h2><strong></strong>ESERCIZI</h2>
+        <h3 class="text-center"><strong></strong>ESERCIZI</h3>
         <ol>
             @foreach ($workout->exercises as $exercise)
 
                 {{-- @dd($exercise)--}}
-                <li>{{ $exercise->name }} - <b>SETS</b> {{ $exercise->pivot->sets }} / <b>REPS</b> {{ $exercise->pivot->reps }}
+                <li><strong>{{ $exercise->name }}</strong> - <b>sets</b> {{ $exercise->pivot->sets }} / <b>reps</b>
+                    {{ $exercise->pivot->reps }}
                     - <b>NOTE</b>
                     {{ $exercise->pivot->notes }}</li>
 

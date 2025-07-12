@@ -34,12 +34,12 @@
     </div>
 
     <div class="container my-2 border-black rounded py-3">
-        <h1 class=" border-primary rounded">Protocolli assegnati: <a class="btn btn-info text-white"
-                href="{{ route('admin.workouts.create', ['athlete_id' => $athlete->id]) }}">Crea un nuovo Workout</a> </h1>
-        @if ($workout != 0)
-            <h2>Schede di allenamento:</h2>
-        @endif
+        <div class="container d-flex justify-content-between">
 
+            <h1 class=" border-primary rounded">Protocolli assegnati:</h1>
+            <a class="btn btn-info text-white align-self-center"
+                href="{{ route('admin.workouts.create', ['athlete_id' => $athlete->id]) }}">Crea un nuovo Workout</a>
+        </div>
         <ol class="p-0">
             <!-- Itero tutti i workout dell'atleta -->
             @forelse ($athlete->workouts as $workout)
