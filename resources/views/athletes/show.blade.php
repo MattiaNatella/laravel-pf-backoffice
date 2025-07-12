@@ -37,7 +37,7 @@
         <div class="container d-flex justify-content-between">
 
             <h1 class=" border-primary rounded">Protocolli assegnati:</h1>
-            <a class="btn btn-info text-white align-self-center"
+            <a class="btn btn-info text-white align-self-center bg-success"
                 href="{{ route('admin.workouts.create', ['athlete_id' => $athlete->id]) }}">Crea un nuovo Workout</a>
         </div>
         <ol class="p-0">

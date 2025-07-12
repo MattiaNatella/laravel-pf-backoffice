@@ -3,7 +3,8 @@
 @section('content')
 
     <div class="container text-center my-3">
-        <a class="btn btn-info my-2" href="{{ route('admin.athletes.create') }}">Aggiungi un nuovo Atleta</a>
+        <a class="btn btn-info my-2 text-white bg-success" href="{{ route('admin.athletes.create') }}">Aggiungi un nuovo
+            Atleta</a>
     </div>
 
     <div class="container d-flex flex-wrap justify-content-center gap-3">
@@ -21,8 +22,8 @@
                                     {{ $athlete->height_cm }}cm<br><strong>Peso:</strong>
                                     {{ $athlete->initial_weight }}kg</small></p>
                             <div class="d-flex gap-1 flex-wrap">
-                                <a class="btn btn-info text-white"
-                                    href="{{ route('admin.athletes.show', $athlete) }}">Dettagli</a>
+                                <a class="btn btn-info text-white" href="{{ route('admin.athletes.show', $athlete) }}">Info
+                                    Atleta</a>
                                 <a class="btn btn-warning text-white"
                                     href="{{ route('admin.athletes.edit', $athlete) }}">Modifica</a>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
