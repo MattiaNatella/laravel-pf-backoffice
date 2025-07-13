@@ -16,7 +16,7 @@ class AthleteController extends Controller
     {
         //raccoglie tutti gli atleti
         $athletes = Athlete::all();
-
+        //li ordina in senso crescente per nome
         $athletes = $athletes->sortBy('name');
 
         return view('athletes.index', compact('athletes'));
@@ -37,6 +37,8 @@ class AthleteController extends Controller
     {
 
         $data = $request->all();
+
+        //se la chiave image esiste, allora
         if (array_key_exists('image', $data)) {
             $img_url = Storage::putFile('athletes', $data['image']);
             $data['image'] = $img_url;
@@ -54,9 +56,10 @@ class AthleteController extends Controller
     public function show(Athlete $athlete)
     {
 
-        //inserendo un arra
+
         //carica i workout solo quando serve, visto che nella index non sono richiesti, li carica solo nel momento in cui vado nella show del singolo atleta risparmiando risorse
 
+        //sintassi per relazioni annidate, per ogni atleta recupera ogni workout, e per ogni workout recupera i suoi esercizi
         $athlete->load(['workouts.exercises']);
         return view('athletes.show', compact('athlete'));
     }
@@ -85,7 +88,7 @@ class AthleteController extends Controller
             //carico la nuova immagine
             $img_url = Storage::putFile('athletes', $data['image']);
 
-            //aggiorno data
+            //aggiorno il valore della chiave image dentro data
             $data['image'] = $img_url;
         }
 

@@ -23,7 +23,7 @@ class WorkoutController extends Controller
     public function create(Request $request)
     {
 
-        //recupero l'id dell'atleta dalla query string inserita come parametro dell'URL
+        //il metodo query('nomequerystring') mi permette di recuperare un dato dalla query string dell'URL
         $athleteId = $request->query('athlete_id');
         // dd($athleteId);
 
@@ -63,6 +63,7 @@ class WorkoutController extends Controller
      */
     public function show(Workout $workout)
     {
+        //->athlete è una relazione eloquent che va a prelevare l'atleta proprietario del workout, non funziona se non ho definito la relazione fra i due modelli, e se successivamente non la ho caricata con load() o with()
         $athlete = $workout->athlete;
 
         $workout->load('exercises');

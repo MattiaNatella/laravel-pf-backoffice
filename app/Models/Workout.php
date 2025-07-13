@@ -21,7 +21,7 @@ class Workout extends Model
     public function exercises()
     {
         return $this->belongsToMany(Exercise::class)
-            //qui sto dicendo di caricare anche i dati della tabella pivot
+            //raccoglie anche i dati relativi alla tabella pivot, nello specifico le colonne sets, reps, notes, e le inserisce dentro exercises->pivot
             ->withPivot(['sets', 'reps', 'notes']);
     }
 }

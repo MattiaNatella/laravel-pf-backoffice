@@ -46,6 +46,7 @@ class ExerciseWorkoutController extends Controller
         $athlete = $workout->athlete;
         // dd($data);
 
+        //posso anche omettere di utilizzare il metodo di un modello assegnato ad una variabile se quella variabile non mi serve (newExercise in questo caso)
         $newExercise = ExerciseWorkout::create($data);
 
         return redirect()->route('admin.exercise_workouts.create')
