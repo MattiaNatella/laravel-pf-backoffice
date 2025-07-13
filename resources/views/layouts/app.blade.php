@@ -30,7 +30,7 @@
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                     <div class="logo_laravel text-danger d-flex">
-                        <img src="storage/logo/Pt-logo.png" alt="Logo-PT" class="logo">
+                        <img src="{{ asset('storage/logo/Pt-logo.png') }}" alt="Logo-PT" class="logo">
                         <span class="align-self-center">BACK OFFICE</span>
 
                     </div>
@@ -83,7 +83,7 @@
                                     <a class="dropdown-item" href="{{ url('dashboard') }}">{{__('Dashboard')}}</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                                                                                                                                         document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                             document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
