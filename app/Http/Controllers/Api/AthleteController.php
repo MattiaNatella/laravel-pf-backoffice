@@ -11,7 +11,7 @@ class AthleteController extends Controller
     public function index()
     {
 
-        //con una sola riga ho accesso internamente ad atleti, workouts e relativi esercizi, tramite with viene effettuato l'"eager loading"
+        //con una sola query ho accesso interamente ad atleti, workouts e relativi esercizi
         $athletes = Athlete::with(['workouts.exercises'])->get();
 
         return response()->json([
