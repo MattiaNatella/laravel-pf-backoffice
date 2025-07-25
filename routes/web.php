@@ -16,6 +16,10 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
+Route::get('/esercizio', function () {
+    return view('esercizio');
+});
+
 // ROTTE ADMIN
 Route::middleware(['auth'])
     ->name('admin.')
@@ -26,5 +30,7 @@ Route::middleware(['auth'])
         Route::resource('athletes', AthleteController::class);
         Route::resource('exercise_workouts', ExerciseWorkoutController::class);
     });
+
+
 
 require __DIR__ . '/auth.php';
